@@ -7,14 +7,16 @@ public class EasierTasksTwo {
     private int count = 0;
     private int[] arr;
 
+
     public static void main(String[] args) {
+        StringBuilder bigger = new StringBuilder();
 
         EasierTasksTwo easierTasksTwo = new EasierTasksTwo();
         OptionalUtilities optionalUtilities = new OptionalUtilities();
 
         System.out.println("Kiek skaiciu ivedinesite?");
 
-        easierTasksTwo.count = (int)optionalUtilities.enterNumber();
+        easierTasksTwo.count = (int) optionalUtilities.enterNumber();
 
         int[] area = new int[easierTasksTwo.count];
 
@@ -28,12 +30,14 @@ public class EasierTasksTwo {
         System.out.println("Ivedete skaicius:");
         easierTasksTwo.printArray();
 
-        System.out.println("Is ju didesni uz 100 yra:");
         for (int i = 0; i < easierTasksTwo.count; i++) {
             if (easierTasksTwo.arr[i] > 100) {
-                System.out.print(easierTasksTwo.arr[i] + " ");
+                bigger.append(" ").append(easierTasksTwo.arr[i]);
             }
         }
+        if (bigger.toString().equals("")){
+            System.out.println("Didesniu uz 100 skaiciu nera");
+        } else {System.out.println("Didesni uz 100 yra sie skaiciai: " + bigger);}
     }
 
     private void printArray() {

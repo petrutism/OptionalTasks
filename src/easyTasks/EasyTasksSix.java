@@ -244,12 +244,11 @@ public class EasyTasksSix {
     }
     private void arrToTemp(){
         Integer[] temp = new Integer[count];
-        // Iterating over new array using for loop
         System.arraycopy(arr, 0, temp, 0, count);
         this.temp = temp;
     }
     private void tempToArr(){
-        // Iterating over new array using for loop
+
         if (count >= 0) System.arraycopy(temp, 0, arr, 0, count);
     }
 

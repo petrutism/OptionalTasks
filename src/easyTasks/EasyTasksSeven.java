@@ -27,7 +27,7 @@ public class EasyTasksSeven {
                 1 - skaiciai iki 10
                 2 - skaiciai iki 100
                 3 - skaiciai iki 10000
-                Bet koks kitas pasirinkimas - pabaiga\040
+                Bet koks kitas pasirinkimas - pabaiga
                 """;
         System.out.println(menu);
 

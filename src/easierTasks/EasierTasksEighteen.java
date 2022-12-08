@@ -8,13 +8,10 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class EasierTasksEighteen {
-    private String filename = "C:\\Users\\diggi\\OneDrive\\Dokumentai\\Mokslai_db\\Projektai\\OOP\\OptionalTasks\\testOne.txt";
+    private final String filename ;
 
     private String[] array;
     private int count;
-
-    private EasierTasksEighteen() {
-    }
 
     private EasierTasksEighteen(String filename) {
         this.filename = filename;

@@ -4,18 +4,28 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Scanner;
 
 class ReadFile {
 
     ReadFile() {
-
+        Scanner sc = new Scanner(System.in);
         BufferedReader readFile = null;
+        String fileSource ;
+        String fileName = """
+                Nurodykite pilna kelia iki failo.
+                Faile vienoje eiluteje per tarpeli turi buti irasytas
+                asmens vardas, asmens pavarde ir asmens amzius.
+                """;
+
+        System.out.println(fileName);
+        fileSource = sc.nextLine();
 
         try {
             String[] readed;
             String strCurrentLine;
 
-            readFile = new BufferedReader(new FileReader("C:\\Users\\diggi\\OneDrive\\Dokumentai\\Mokslai_db\\Projektai\\OOP\\OptionalTasks\\Person.txt"));
+            readFile = new BufferedReader(new FileReader(fileSource));
 
             while ((strCurrentLine = readFile.readLine()) != null) {
 

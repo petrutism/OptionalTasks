@@ -50,6 +50,7 @@ public class Menu {
         }
         print.byName(name);
     }
+
     private void showByNameFirstLetter() {
         String nameFirstChar = "";
         while (nameFirstChar.length() > 1 || !nameFirstChar.matches("[a-zA-Z]+")) {
@@ -59,6 +60,7 @@ public class Menu {
 
         print.byNameFirstLetter(nameFirstChar.charAt(0));
     }
+
     private void showBySurnameFirstLetter() {
         String surNameFirstChar = "";
         while (surNameFirstChar.length() > 1 || !surNameFirstChar.matches("[a-zA-Z]+")) {
@@ -67,13 +69,19 @@ public class Menu {
         }
         print.bySurnameFirstLetter(surNameFirstChar.charAt(0));
     }
-    private void showByAge(){
-        String age ="";
-        while (!age.matches("[0-9]+")) {
+
+    private void showByAge() {
+        boolean err = true;
+        String age = "";
+        while (!age.matches("[0-9]+") || err) {
             System.out.print("Iveskite amziu: ");
             age = sc.nextLine();
+            try {
+                print.byAge(Integer.valueOf(age));
+            } catch (NumberFormatException nfe) {
+                err = true;
+            }
         }
-        print.byAge(Integer.valueOf(age));
     }
 
 

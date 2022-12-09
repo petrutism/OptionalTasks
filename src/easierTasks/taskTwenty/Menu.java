@@ -77,8 +77,10 @@ public class Menu {
             System.out.print("Iveskite amziu: ");
             age = sc.nextLine();
             try {
+                err = false;
                 print.byAge(Integer.valueOf(age));
             } catch (NumberFormatException nfe) {
+                System.out.println("Tokio amziaus nebuna.");
                 err = true;
             }
         }

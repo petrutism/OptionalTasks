@@ -7,9 +7,7 @@ class InputPerson {
 
     InputPerson() {
 
-        Scanner sc = new Scanner(System.in);
-
-        doRecord(name(), surname(), age());
+       doRecord(name(), surname(), age());
     }
 
     Scanner sc = new Scanner(System.in);
@@ -42,6 +40,9 @@ class InputPerson {
     }
 
     private void doRecord(String name, String surname, String age) {
+        if (Person.persons.length == 0) {
+            new ReadFile();
+        }
 
         for (int i = 0; i < Person.persons.length; i++) {
             if (Person.persons[i].name.equals(name) && Person.persons[i].surname.equals(surname) && Person.persons[i].age.equals(age)) {

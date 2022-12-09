@@ -1,25 +1,38 @@
 package easierTasks.taskTwenty;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
 class ReadFile {
+    boolean fileExists = false;
+    String fileSource = "";
 
     ReadFile() {
+
         Scanner sc = new Scanner(System.in);
         BufferedReader readFile = null;
-        String fileSource ;
-        String fileName = """
+
+
+        String fileIntro = """
                 Nurodykite pilna kelia iki failo.
                 Faile vienoje eiluteje per tarpeli turi buti irasytas
                 asmens vardas, asmens pavarde ir asmens amzius.
                 """;
 
-        System.out.println(fileName);
-        fileSource = sc.nextLine();
+        System.out.println(fileIntro);
+        while (fileSource.equals("") || !fileExists) {
+
+            fileSource = sc.nextLine();
+            File f = new File(fileSource);
+            fileExists = f.exists();
+            if(!fileExists){
+                System.out.println("Toks failas neegzistuoja. Iveskite is naujo.");
+            }
+        }
 
         try {
             String[] readed;

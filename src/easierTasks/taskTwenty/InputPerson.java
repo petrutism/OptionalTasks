@@ -6,15 +6,13 @@ import java.util.Scanner;
 class InputPerson {
 
     InputPerson() {
-
-       doRecord(name(), surname(), age());
+        doRecord(name(), surname(), age());
     }
-
-    Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
     private String name() {
         String name = "";
-        while (!onlyLetters(name)) {
+        while (notOnlyLetters(name)) {
             System.out.print("Iveskite varda: ");
             name = sc.nextLine();
         }
@@ -23,7 +21,7 @@ class InputPerson {
 
     private String surname() {
         String surname = "";
-        while (!onlyLetters(surname)) {
+        while (notOnlyLetters(surname)) {
             System.out.print("Iveskite pavarde: ");
             surname = sc.nextLine();
         }
@@ -41,7 +39,7 @@ class InputPerson {
 
     private void doRecord(String name, String surname, String age) {
         if (Person.persons.length == 0) {
-            new ReadFile();
+            ReadFile.readFile();
         }
 
         for (int i = 0; i < Person.persons.length; i++) {
@@ -50,15 +48,17 @@ class InputPerson {
                 return;
             }
         }
-
+        Write write = new Write();
         Person person = new Person(name, surname, age);
         Person.persons = Arrays.copyOf(Person.persons, Person.persons.length + 1);
         Person.persons[Person.persons.length - 1] = person;
-        System.out.println("Naujas asmuo irasytas");
+        write.toFile();
+        System.out.println("Naujas asmuo irasytas i sarasa");
     }
 
-    private boolean onlyLetters(String text) {
-        return text.matches("[a-zA-Z]+");
+    private boolean notOnlyLetters(String text) {
+        return !text.matches("[a-zA-Z]+");
+
     }
 
     private boolean onlyNumbers(String text) {

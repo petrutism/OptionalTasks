@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Menu {
     Scanner sc = new Scanner(System.in);
     PrintFromArray print = new PrintFromArray();
-    String menutext = """ 
+    String menutext = """
                         
             PASIRINKITE:
             a - Nuskaityti vartotojus is failo ir atspausdinti.
@@ -15,20 +15,18 @@ public class Menu {
             e - Parodyti vartotojus, kuriu pavarde prasideda prasoma raide.
             f - Parodyti vartotojus, kuiu amzius yra didesnis, nei ivestas skaicius.
                         
-            Bet koks kitas pasirinkimas - baigti darba.            
+            Bet koks kitas pasirinkimas - baigti darba.           \s
                     """;
 
     void menu() {
 
         boolean again = true;
+
         while (again) {
             System.out.print(menutext);
             String menu = sc.nextLine();
             switch (menu) {
-                case "a" -> {
-                    new ReadFile();
-                    print.all();
-                }
+                case "a" -> print.all();
                 case "b" -> new InputPerson();
                 case "c" -> showByName();
                 case "d" -> showByNameFirstLetter();
@@ -57,14 +55,13 @@ public class Menu {
             System.out.print("Iveskite norimo vardo pirmaja raide: ");
             nameFirstChar = sc.nextLine();
         }
-
         print.byNameFirstLetter(nameFirstChar.charAt(0));
     }
 
     private void showBySurnameFirstLetter() {
         String surNameFirstChar = "";
         while (surNameFirstChar.length() > 1 || !surNameFirstChar.matches("[a-zA-Z]+")) {
-            System.out.print("Iveskite norimo vardo pirmaja raide: ");
+            System.out.print("Iveskite norimos pavardes pirmaja raide: ");
             surNameFirstChar = sc.nextLine();
         }
         print.bySurnameFirstLetter(surNameFirstChar.charAt(0));
@@ -78,7 +75,7 @@ public class Menu {
             age = sc.nextLine();
             try {
                 err = false;
-                print.byAge(Integer.valueOf(age));
+                print.byAge(Integer.parseInt(age));
             } catch (NumberFormatException nfe) {
                 System.out.println("Tokio amziaus nebuna.");
                 err = true;

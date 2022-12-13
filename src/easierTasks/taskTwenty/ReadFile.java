@@ -8,11 +8,12 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 class ReadFile {
-    boolean fileExists = false;
-    String fileSource = "";
 
-    ReadFile() {
+    static String fileSource = "";
 
+    static void readFile() {
+
+        boolean fileExists = false;
         Scanner sc = new Scanner(System.in);
         BufferedReader readFile = null;
 
@@ -25,11 +26,10 @@ class ReadFile {
 
         System.out.println(fileIntro);
         while (fileSource.equals("") || !fileExists) {
-
             fileSource = sc.nextLine();
             File f = new File(fileSource);
             fileExists = f.exists();
-            if(!fileExists){
+            if(!f.exists()){
                 System.out.println("Toks failas neegzistuoja. Iveskite is naujo.");
             }
         }

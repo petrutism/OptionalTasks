@@ -8,6 +8,7 @@ class PrintFromArray {
     }
 
     public void all() {
+        fileReadCheck();
         for (int i = 0; i < Person.persons.length; i++) {
             System.out.println(record(i));
         }
@@ -15,9 +16,7 @@ class PrintFromArray {
 
     void byName(String name) {
         isFound = false;
-        if (Person.persons.length == 0) {
-            new ReadFile();
-        }
+        fileReadCheck();
 
         for (int i = 0; i < Person.persons.length; i++) {
             if (name.equals(Person.persons[i].name)) {
@@ -33,9 +32,7 @@ class PrintFromArray {
 
     void byNameFirstLetter(char letter) {
         isFound = false;
-        if (Person.persons.length == 0) {
-            new ReadFile();
-        }
+        fileReadCheck();
 
         for (int i = 0; i < Person.persons.length; i++) {
             if (letter == Person.persons[i].name.charAt(0)) {
@@ -50,9 +47,7 @@ class PrintFromArray {
 
     void bySurnameFirstLetter(char letter) {
         isFound = false;
-        if (Person.persons.length == 0) {
-            new ReadFile();
-        }
+        fileReadCheck();
 
         for (int i = 0; i < Person.persons.length; i++) {
             if (letter == Person.persons[i].surname.charAt(0)) {
@@ -67,9 +62,7 @@ class PrintFromArray {
 
     void byAge(int age) {
         isFound = false;
-        if (Person.persons.length == 0) {
-            new ReadFile();
-        }
+        fileReadCheck();
 
         for (int i = 0; i < Person.persons.length; i++) {
             if (age < Integer.parseInt(Person.persons[i].age)) {
@@ -79,6 +72,11 @@ class PrintFromArray {
         }
         if (!isFound) {
             System.out.println("Asmuo, kurio amzius butu didesnis nei nurodyta, nerastas.");
+        }
+    }
+    void fileReadCheck(){
+        if (Person.persons.length == 0) {
+            ReadFile.readFile();
         }
     }
 }
